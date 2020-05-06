@@ -8,6 +8,7 @@ use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 class TestCase extends PHPUnitTestCase
 {
     const SET_CODE_IXALAN = 'xln';
+    const SET_CODE_INVALID = 'invalid';
     const CARD_NUMBER_COSTLY_PLUNDER = 96;
 
     protected $api;

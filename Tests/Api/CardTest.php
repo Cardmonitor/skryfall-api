@@ -14,4 +14,18 @@ class CardTest extends \Cardmonitor\Skryfall\Tests\TestCase
         $this->assertEquals('card', $data['object']);
         $this->assertEquals('Costly Plunder', $data['name']);
     }
+
+    /**
+     * @test
+     */
+    public function it_gets_the_cards_for_a_set()
+    {
+        $data = $this->api->card->search([
+            'order' => 'set',
+            'q' => 'set:' . self::SET_CODE_IXALAN,
+            'unique' => 'prints',
+        ]);
+
+        var_dump($data);
+    }
 }
