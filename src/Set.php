@@ -6,6 +6,10 @@ use Cardmonitor\Skryfall\AbstractApi;
 
 class Set extends AbstractApi
 {
+    public function all()
+    {
+        return $this->_get('sets');
+    }
 
     public function findByCode(string $code)
     {

@@ -7,6 +7,17 @@ class SetTest extends \Cardmonitor\Skryfall\Tests\TestCase
     /**
      * @test
      */
+    public function it_gets_all_sets()
+    {
+        $data = $this->api->set->all();
+        $this->assertArrayHasKey('object', $data);
+        $this->assertArrayHasKey('has_more', $data);
+        $this->assertArrayHasKey('data', $data);
+    }
+
+    /**
+     * @test
+     */
     public function it_gets_a_set_by_code()
     {
         $data = $this->api->set->findByCode(self::SET_CODE_IXALAN);
