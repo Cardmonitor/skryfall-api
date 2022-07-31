@@ -12,6 +12,11 @@ class Card extends AbstractApi
         return $this->_get('cards/' . $code . '/' . $number .'/' . $language);
     }
 
+    public function findByCardmarketId(int $cardmarket_id)
+    {
+        return $this->_get('/cards/cardmarket/' . $cardmarket_id);
+    }
+
     public function search(array $parameters)
     {
         return $this->_get('cards/search', $parameters);
