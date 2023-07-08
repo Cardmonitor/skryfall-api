@@ -5,7 +5,9 @@
 
     class Api
     {
-        protected $client;
+        private $client;
+        public Card $card;
+        public Set $set;
 
         public function __construct()
         {
@@ -18,9 +20,9 @@
         protected function getClient() : Client
         {
             return new Client([
-                'auth'      => 'oauth',
-                'base_uri'  => 'https://api.scryfall.com',
-                'timeout'   => 5.0,
+                'auth' => 'oauth',
+                'base_uri' => 'https://api.scryfall.com',
+                'timeout' => 5.0,
             ]);
         }
 

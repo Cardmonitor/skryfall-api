@@ -3,9 +3,6 @@
 namespace Cardmonitor\Skryfall;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Response;
 
 abstract class AbstractApi
 {
@@ -24,9 +21,13 @@ abstract class AbstractApi
 
     protected function request(string $method, string $path = '', array $parameters = []) : array
     {
-        $response = $this->client->$method($path, [ 'query' => $parameters, 'debug' => $this->debug ]);
-
-        return json_decode($response->getBody(), true);
+        try {
+            $response = $this->client->$method($path, [ 'query' => $parameters, 'debug' => $this->debug ]);
+            return json_decode($response->getBody(), true);
+        }
+        catch (\GuzzleHttp\Exception\ClientException $e) {
+            return [];
+        }
     }
 
 }
