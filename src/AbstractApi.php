@@ -21,13 +21,9 @@ abstract class AbstractApi
 
     protected function request(string $method, string $path = '', array $parameters = []) : array
     {
-        try {
-            $response = $this->client->$method($path, [ 'query' => $parameters, 'debug' => $this->debug ]);
-            return json_decode($response->getBody(), true);
-        }
-        catch (\GuzzleHttp\Exception\ClientException $e) {
-            return [];
-        }
+        $response = $this->client->$method($path, [ 'query' => $parameters, 'debug' => $this->debug ]);
+
+        return json_decode($response->getBody(), true);
     }
 
 }

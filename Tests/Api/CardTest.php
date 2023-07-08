@@ -39,6 +39,6 @@ class CardTest extends \Cardmonitor\Skryfall\Tests\TestCase
             'unique' => 'prints',
         ]);
 
-        var_dump($data);
+        // var_dump($data);
     }
 }
